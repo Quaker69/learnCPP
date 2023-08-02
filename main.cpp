@@ -1,40 +1,57 @@
-#include <algorithm>
-#include <bits/types/locale_t.h>
-#include <cstdio>
+
 #include <cstdlib>
 #include <iostream>
-#include <iterator>
-#include <limits>
-#include <type_traits>
-#include <cmath>
 
-
-
-int getvaluefromuser(){
-    std::cout << "enter a integer"<<'\n';
+int getval(){
     int num{};
     std::cin >> num;
 
     return num;
-
-}
-void console_print(int x , int y){
-    std::cout<<"x : y = "<< x <<":"<< y <<'\n';
 }
 
-int main(){
+char operant(){
+    char oper;
+    std::cin >> oper;
 
-    int x{getvaluefromuser()};
-    int y{getvaluefromuser()};
-    console_print(x,y);
-    struct {
-        int a{34};
-        int b{};
-        int c{};
+    return oper;
+}
 
-                
-    }struct_1;
+int cpu(int value,char oper,int value1){
+    if (oper== '+'){
+        return value + value1;
+    }
+    else if (oper == '-') {
+        return value - value1;
+    }
+    else if (oper == '*'){
+        return value * value1;
+    }
+    else if (oper == '/'){
+        return value / value1;
+    }
+    else {
+        return EXIT_FAILURE;
+        exit(1);
+    }
 
-    std::cout <<struct_1.a<<std::endl;
+}
 
+int main()
+{
+
+    int value {getval()};
+
+    // std::cout << value<<std::endl; //debug
+
+    char oper {operant()};
+
+    /*std::cout << oper;  */           //debug
+
+    int value1 {getval()};
+
+    int  result{cpu(value , oper , value1)};
+
+    std::cout << result<<std::endl;
+
+    return 0;
 }
